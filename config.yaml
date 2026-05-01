@@ -1,0 +1,88 @@
+paths:
+  data_root: data
+  inputs_dir: data/inputs
+  generated_dir: data/generated
+  metadata_file: data/metadata.csv
+  results_dir: results
+  figures_dir: results/figures
+  failure_cases_dir: results/failure_cases
+categories:
+- rigid
+- articulated
+- organic
+samples_per_category: 5
+imagenet_classes:
+  rigid:
+  - - 504
+    - coffee_mug
+  - - 898
+    - water_bottle
+  - - 954
+    - banana
+  - - 852
+    - tennis_ball
+  - - 921
+    - book_jacket
+  articulated:
+  - - 671
+    - mountain_bike
+  - - 670
+    - motor_scooter
+  - - 879
+    - umbrella
+  - - 423
+    - barber_chair
+  - - 872
+    - tripod
+  organic:
+  - - 400
+    - academic_gown
+  - - 652
+    - military_uniform
+  - - 981
+    - ballplayer
+  - - 340
+    - zebra
+  - - 388
+    - giant_panda
+stage1:
+  magnitudes:
+  - small
+  - medium
+  - large
+stage2:
+  fixed_magnitude: medium
+stage3:
+  conditions:
+  - baseline
+  - viewpoint_desc
+  comparison_reference:
+    default_bucket: large
+    overrides:
+      articulated_06_motor_scooter-5: medium
+matcher:
+  primary: sift
+  use_loftr: false
+  sift:
+    n_features: 0
+    contrast_threshold: 0.04
+    edge_threshold: 10
+  ratio_test: 0.75
+ransac:
+  method: homography
+  threshold: 5.0
+  confidence: 0.99
+  max_iters: 2000
+  min_matches: 8
+deep_metrics:
+  use_lpips: true
+  use_clip: true
+  device: cpu
+  lpips_net: alex
+  clip_model: ViT-B-32
+  clip_pretrained: laion2b_s34b_b79k
+sanity:
+  expected_inlier_ratio_self: 0.95
+viz:
+  dpi: 150
+  fig_format: png
