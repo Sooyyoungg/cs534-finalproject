@@ -1,4 +1,4 @@
-# Minimal Export
+# CS 534 Final Project
 
 Files:
 
