@@ -13,7 +13,6 @@ Expected folders:
 ```text
 data/inputs
 data/generated
-results
 ```
 
 Usage:
