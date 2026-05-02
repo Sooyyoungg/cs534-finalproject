@@ -15,6 +15,10 @@ data/inputs
 data/generated
 ```
 
+`data/metadata.csv` is generated automatically by `compute_metrics.py` from
+the image files under `data/inputs` and `data/generated`. It is intentionally
+not committed because it contains machine-specific absolute file paths.
+
 Usage:
 
 ```bash
